@@ -1,0 +1,109 @@
+/* body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  height: 100vh;
+  margin: 0;
+  background-color: #f9f9f9;
+} */
+
+.counter-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.counter-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.counter-btn:active {
+  transform: scale(0.95);
+}
+
+.counter-btn:hover {
+  background-color: #0056b3;
+}
+
+.counter-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  min-width: 40px;
+  text-align: center;
+}
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f2f2f2; /* Light background for contrast */
+}
+
+.date-paragraph {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff; /* Text color */
+  background-color: #4caf50; /* Green background */
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center;
+  max-width: 300px;
+  margin: 0 auto;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.date-paragraph:hover {
+  background-color: #45a049; /* Slightly darker green on hover */
+  transform: scale(1.05); /* Subtle zoom effect */
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 100;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  height: 100vh;
+  background-color: #f2f2f2;
+}
+
+.app {
+  text-align: top;
+}
+
+.date-container {
+  margin-top: 20px;
+}
+
+/* Animated Text */
+.animated-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #007bff;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 400%;
+  animation: moveText 10s linear infinite;
+}
+
+/* Keyframes for text animation */
+@keyframes moveText {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
