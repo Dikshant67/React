@@ -231,7 +231,10 @@ body {
 .list h3 {
   font-size: 1.8rem;
 }
-
+.list li:hover {
+  background-color: var(--color-background-100);
+  transform: scale(1.02);
+}
 .list div {
   display: flex;
   align-items: center;
@@ -391,4 +394,23 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
