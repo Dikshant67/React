@@ -3,16 +3,16 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 
-import StarsRating from "./StarsRating";
-function Test() {
-  const [ratedStars, setRatedStars] = useState("");
-  return (
-    <div>
-      <StarsRating maxRating={10} onRateGiven={(x) => setRatedStars(x)} />
-      <p> This movie has rated {ratedStars} stars.</p>
-    </div>
-  );
-}
+// import StarsRating from "./StarsRating";
+// function Test() {
+//   const [ratedStars, setRatedStars] = useState("");
+//   return (
+//     <div>
+//       <StarsRating maxRating={10} onRateGiven={(x) => setRatedStars(x)} />
+//       <p> This movie has rated {ratedStars} stars.</p>
+//     </div>
+//   );
+// }
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
