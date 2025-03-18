@@ -129,7 +129,7 @@ export default function App() {
           setIsLoading(false);
         }
       }
-
+      handleClose();
       fetchMovies();
       return function () {
         controller.abort();
