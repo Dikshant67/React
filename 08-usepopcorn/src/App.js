@@ -102,7 +102,7 @@ export default function App() {
     function () {
       setIsLoading(true);
 
-      async function fetchMovies(params) {
+      async function fetchMovies() {
         try {
           setError("");
           const res = await fetch(
@@ -136,7 +136,7 @@ export default function App() {
     <>
       <NavBar>
         <Logo />
-        <Search setQuery={setQuery} query={query} />
+        <Search setQuery={setQuery} />
         <Numresult movies={movies} />
       </NavBar>
       <Main>
