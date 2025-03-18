@@ -1,7 +1,9 @@
 import { average } from "../App";
 
 export function WatchSummary({ watched }) {
-  const avgImdbRating = average(watched.map((movie) => movie.imdbRating));
+  const avgImdbRating = Math.round(
+    average(watched.map((movie) => movie.imdbRating))
+  );
   const avgUserRating = Math.round(
     average(watched.map((movie) => movie.userRating))
   );
