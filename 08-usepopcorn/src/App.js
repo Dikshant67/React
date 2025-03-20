@@ -13,6 +13,7 @@ import { Search } from "./components/Search";
 import { Logo } from "./components/Logo";
 import { NavBar } from "./components/NavBar";
 import { Main } from "./components/Main";
+
 // const tempMovieData = [
 //   {
 //     imdbID: "tt1375666",
@@ -59,10 +60,10 @@ const tempWatchedData = [
     userRating: 9,
   },
 ];*/
-
+const apiKey = process.env.REACT_APP_API_KEY;
+console.log(apiKey);
 export const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
-const KEY = "4db154b2";
 
 export default function App() {
   const [movies, setMovies] = useState([]);
@@ -106,7 +107,7 @@ export default function App() {
         try {
           setError("");
           const res = await fetch(
-            `https://www.omdbapi.com/?i=tt3896198&apikey=${KEY}&s=${query}`,
+            `https://www.omdbapi.com/?i=tt3896198&apikey=${apiKey}&s=${query}`,
             { signal: controller.signal }
           );
           setError("");

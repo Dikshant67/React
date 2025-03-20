@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import StarRating from "./StarsRating";
 import Loader from "./Loader";
-const KEY = "4db154b2";
+
+const apiKey = process.env.REACT_APP_API_KEY;
 
 export default function MovieDetails({
   selectedId,
@@ -45,7 +46,7 @@ export default function MovieDetails({
       async function getMovieDetails() {
         setIsLoading(true);
         const res = await fetch(
-          `https://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`
+          `https://www.omdbapi.com/?apikey=${apiKey}&i=${selectedId}`
         );
         const data = await res.json();
         setMovie(data);
