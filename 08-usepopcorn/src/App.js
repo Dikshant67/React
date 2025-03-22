@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Loader from "./components/Loader";
 import MovieDetails from "./components/MovieDetails";
-import StarsRating from "./components/StarsRating";
 import { WatchSummary } from "./components/WatchSummary";
 import { MoviesList } from "./components/MoviesList";
 import { WatchList } from "./components/WatchList";
@@ -99,6 +98,12 @@ export default function App() {
       setWatched((watched) => [...watched, movie]);
     }
   }
+  function handleDeleteWatchedMovie(movie) {
+
+        setWatched((prevWatched) =>
+            prevWatched.filter((watchedMovie) => watchedMovie.imdbID !== movie.imdbID)
+        );
+  }
   useEffect(
     function () {
       setIsLoading(true);
@@ -116,8 +121,11 @@ export default function App() {
           const data = await res.json();
           if (data?.Response === "False")
             throw new Error("Movie not Found,Try Modifying your Search");
+
+
           if (query !== "") {
             setMovies(data?.Search);
+
           } else setMovies([]);
           console.log(data.Search);
           setIsLoading(false);
@@ -173,6 +181,7 @@ export default function App() {
               <WatchList
                 watched={watched}
                 SelectMovie={handleSelectedMovie}
+                onDeleteWatchedMovie={handleDeleteWatchedMovie}
               ></WatchList>
             </>
           )}

@@ -13,7 +13,9 @@ export default function MovieDetails({
   const [movie, setMovie] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [userRating, setUserRating] = useState(0);
-
+  const rating = watched.find(
+    (movie) => movie.imdbID === selectedId
+  )?.userRating;
   const {
     Title: title,
     Year: year,
@@ -113,15 +115,20 @@ export default function MovieDetails({
           </header>
           <section>
             <div className="rating">
-              <StarRating
-                maxRating={10}
-                size={24}
-                onRateGiven={setUserRating}
-                defaultRating={
-                  watched.find((movie) => movie.imdbID === selectedId)
-                    ?.userRating
-                }
-              />
+              {rating ? (
+                <span>You rated this movie {rating}⭐</span>
+              ) : (
+                <StarRating
+                  maxRating={10}
+                  size={24}
+                  onRateGiven={setUserRating}
+                  defaultRating={
+                    watched.find((movie) => movie.imdbID === selectedId)
+                      ?.userRating
+                  }
+                />
+              )}
+
               {userRating > 0 && (
                 <button className="btn-add" onClick={handleAddWatchedMovie}>
                   Add to List
