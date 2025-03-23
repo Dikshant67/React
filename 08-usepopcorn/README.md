@@ -1,3 +1,26 @@
+# Movie Search App
+
+A React-based web application that allows users to search for movies using the OMDB API, view movie details, and maintain a personal watchlist with ratings. Built with React hooks (`useState`, `useEffect`) and local storage for persistence.
+
+## Features
+- **Search Movies**: Search for movies by title using the OMDB API.
+- **Movie Details**: View detailed information about a selected movie.
+- **Watchlist**: Add movies to a watchlist, assign user ratings, and delete entries.
+- **Persistent Storage**: Watchlist data is saved to `localStorage` and persists across sessions.
+- **Error Handling**: Displays meaningful error messages for failed searches or API issues.
+- **Responsive UI**: Clean, modular component structure with a loading state.
+
+## Prerequisites
+- [Node.js](https://nodejs.org/) (v14 or higher recommended)
+- An [OMDB API key](http://www.omdbapi.com/apikey.aspx) (free tier available)
+
+## Installation
+1. **Clone the Repository**:
+   ```bash
+   git clone <repository-url>
+   cd movie-search-app
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
