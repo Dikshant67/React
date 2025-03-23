@@ -40,6 +40,7 @@ export default function StarsRating({
   function handleRating(i) {
     setRating(i + 1);
     onRateGiven !== undefined ? onRateGiven(i + 1) : console.log(rating);
+
   }
   return (
     <div style={containerStyle} className={className}>

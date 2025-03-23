@@ -66,11 +66,15 @@ export const average = (arr) =>
 
 export default function App() {
   const [movies, setMovies] = useState([]);
-  const [watched, setWatched] = useState([]);
   const [loading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState(null);
+
+  const [watched, setWatched] = useState(function (){
+    const storedValue=localStorage.getItem("watched");
+    return JSON.parse(storedValue);
+  });
 
   function handleSelectedMovie(movieId) {
     setSelectedId(movieId === selectedId ? null : movieId);
@@ -92,18 +96,22 @@ export default function App() {
           ? { ...watchedMovie, userRating: movie.userRating }
           : watchedMovie
       );
-      setWatched(updatedWatched); // Update the watched array
+      setWatched(updatedWatched);
+      // localStorage.setItem("watched",JSON.stringify(([...watched,movie])));// Update the watched array
     } else {
       // Movie does not exist: Add it to the watched array
       setWatched((watched) => [...watched, movie]);
+      // localStorage.setItem("watched",JSON.stringify(([...watched,movie])));
     }
   }
+  useEffect(function () { localStorage.setItem("watched",JSON.stringify(watched)); },[watched])
   function handleDeleteWatchedMovie(movie) {
 
         setWatched((prevWatched) =>
             prevWatched.filter((watchedMovie) => watchedMovie.imdbID !== movie.imdbID)
         );
   }
+
   useEffect(
     function () {
       setIsLoading(true);

@@ -28,7 +28,7 @@ export default function MovieDetails({
     Director: director,
     Genre: genres,
   } = movie;
-
+// const [averageRating, setAverageRating] = useState(0);
   function handleAddWatchedMovie() {
     const newWatchedMovie = {
       imdbID: selectedId,
@@ -40,7 +40,8 @@ export default function MovieDetails({
       userRating,
     };
     onAddWatched(newWatchedMovie); // Add or update the movie
-    onSelectClose(); // Close the movie details view
+    setUserRating(0);
+   onSelectClose(); // Close the movie details view
   }
 
   useEffect(
