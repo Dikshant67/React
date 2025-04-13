@@ -1,3 +1,28 @@
+
+# Movie Search App 🎥
+
+A React-based movie search application that allows users to search for movies, view details, and manage a watchlist. The app fetches data from the OMDB API and provides a seamless user experience.
+
+## Features ✨
+
+- **Search Movies**: Search for movies by title.
+- **Movie Details**: View detailed information about a selected movie.
+- **Watchlist**: Add movies to your watchlist and rate them.
+- **Responsive Design**: Works seamlessly on both desktop and mobile devices.
+
+## Technologies Used 🛠️
+
+- **React**: A JavaScript library for building user interfaces.
+- **OMDB API**: Provides movie data.
+- **Local Storage**: Saves the watchlist locally.
+
+## Installation 🚀
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/movie-search-app.git
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
