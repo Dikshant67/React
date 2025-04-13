@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import {useEffect, useRef, useState} from "react";
 import StarRating from "./StarsRating";
 import Loader from "./Loader";
+import {useKey} from "./useKey";
 
 const apiKey = process.env.REACT_APP_API_KEY;
 
@@ -16,6 +17,11 @@ export default function MovieDetails({
   const rating = watched.find(
     (movie) => movie.imdbID === selectedId
   )?.userRating;
+  const countRef=useRef(0);
+  useEffect(function (){
+    if(userRating) countRef.current++;
+  },[userRating]);
+
   const {
     Title: title,
     Year: year,
@@ -38,7 +44,7 @@ export default function MovieDetails({
       imdbRating: Number(imdbRating),
       runtime: runtime.split(" ").at(0),
       userRating,
-    };
+      countRatingDecisions :countRef.current       };
     onAddWatched(newWatchedMovie); // Add or update the movie
     setUserRating(0);
    onSelectClose(); // Close the movie details view
@@ -73,22 +79,8 @@ export default function MovieDetails({
     },
     [title, selectedId]
   );
-  useEffect(
-    function () {
-      function callback(e) {
-        if (e.code === "Escape") {
-          onSelectClose();
-          console.log("closing");
-        }
-      }
-      document.addEventListener("keydown", callback);
-      return function () {
-        document.removeEventListener("keydown", callback);
-      };
-    },
+useKey("Escape",onSelectClose);
 
-    [onSelectClose]
-  );
   return (
     <div className="details">
       {isLoading ? (

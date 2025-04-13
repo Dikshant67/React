@@ -7,7 +7,7 @@ export function WatchSummary({ watched }) {
   const avgUserRating = Math.round(
     average(watched.map((movie) => movie.userRating))
   );
-  const avgRuntime = Math.round(average(watched.map((movie) => movie.runtime)));
+  const avgRuntime =Math.round(average(watched.map(movie => isNaN(movie.runtime) || movie.runtime == null ? 120 : movie.runtime)));
   return (
     <div className="summary">
       <h2>Movies you watched</h2>

@@ -1,7 +1,12 @@
 export function MessageBox({ children }) {
-  return (
-    <>
-      <p className="search-msg">{children}</p>
-    </>
-  );
+    const handleClick = () => {
+        const searchElement = document.querySelector(".search");
+        searchElement?.focus();
+    };
+
+    return (
+        <>
+            <p onClick={handleClick} className="search-msg">{children}</p>
+        </>
+    );
 }
