@@ -1,10 +1,33 @@
-export default  function NextButton({dispatch,answer}) {
-   if(answer === null) {return null;}
+export default function NextButton({
+  dispatch,
+  answer,
+  numberOfQuestions,
+  index,
+}) {
+  if (answer === null) {
+    return null;
+  }
 
-    return <div>
-
-        <button className="btn btn-ui" onClick={()=>dispatch({type : "nextQuestion"})}>
-            Next
+  if (index < numberOfQuestions - 1)
+    return (
+      <div>
+        <button
+          className="btn btn-ui"
+          onClick={() => dispatch({ type: "nextQuestion" })}
+        >
+          Next
         </button>
-    </div>;
+      </div>
+    );
+  if (index === numberOfQuestions - 1)
+    return (
+      <div>
+        <button
+          className="btn btn-ui"
+          onClick={() => dispatch({ type: "finish" })}
+        >
+          Finish
+        </button>
+      </div>
+    );
 }
