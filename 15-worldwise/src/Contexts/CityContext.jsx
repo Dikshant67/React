@@ -1,5 +1,5 @@
 import {createContext, useContext, useEffect, useState} from "react";
-const BASE_URL = "https://my-json-server.typicode.com/Dikshant67/questions";
+const BASE_URL = "http://localhost:9000/";
 const CitiesContext =createContext();
 // eslint-disable-next-line react/prop-types
 function CitiesProvider({children}) {
